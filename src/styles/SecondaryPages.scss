@@ -1,0 +1,33 @@
+.full-list {
+  position: relative;
+  z-index: 3;
+
+  @media(max-width: 767px) {
+    margin-top: 40px;
+  }
+
+  .heading {
+    color: #fff;
+    margin: 0 0 10px;
+    padding-left: 7px;
+  }
+
+  .movie-list {
+    .movie {
+      flex-basis: calc(20% - 12px);
+
+      @media(max-width:767px) {
+        flex-basis: calc(25% - 12px);
+      }
+    }
+
+    &.crew {
+      justify-content: flex-start;
+      gap: 10px;
+
+      .movie {
+        margin-bottom: 10px;
+      }
+    }
+  }
+}

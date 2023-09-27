@@ -1,0 +1,118 @@
+.top-navbar-shadow {
+  opacity: .85;
+  background-color: transparent;
+  background-image: linear-gradient(180deg, #14181c 0, rgba(20, 24, 28, .945) 16.56%, rgba(20, 24, 28, .802) 30.85%, rgba(20, 24, 28, .606) 43.77%, rgba(20, 24, 28, .394) 56.23%, rgba(20, 24, 28, .198) 69.15%, rgba(20, 24, 28, .055) 83.44%, rgba(20, 24, 28, 0));
+  background-repeat: repeat-x;
+  height: 165px;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 2;
+
+  @media (max-width:767px) {
+    display: none;
+  }
+}
+
+.navbar {
+  margin-bottom: 30px;
+  margin-top: 20px;
+  z-index: 10;
+
+  .navbar-brand {
+    color: #faad14;
+    font-weight: 900;
+
+    @media(min-width:768px) {
+      display: none;
+    }
+
+    @media(max-width:767px) {
+      margin-left: 6px;
+    }
+  }
+
+  @media (max-width: 767px) {
+    display: contents !important;
+
+    .container {
+      background: #1e1e1e;
+      margin-left: 0;
+      margin-right: 0;
+      max-width: 100%;
+      position: relative;
+      z-index: 1;
+
+      .navbar-toggler {
+        margin: 10px 0;
+        background: #898989;
+      }
+
+      h1 {
+        margin-bottom: 0;
+      }
+
+      ul {
+        margin-bottom: 20px !important;
+
+        li {
+          display: flex;
+          justify-content: flex-end;
+        }
+      }
+    }
+  }
+
+  .navlinks {
+    display: block;
+    padding: 0.5rem 0;
+    font-size: 1em;
+    color: #fff;
+    text-decoration: none;
+    background: none;
+    border: 0;
+    transition: color 0.15s ease-in-out, background 0.15s ease-in-out, border-color 0.15s ease-in-out;
+    border-bottom: 0.125rem solid transparent;
+
+    @media (max-width: 767px) {
+      width: fit-content;
+    }
+
+    &:hover {
+      color: #faad14;
+    }
+
+    &.active {
+      font-weight: 700;
+      color: #faad14;
+      border-bottom-color: #faad14;
+    }
+  }
+
+  .search-holder {
+    display: flex;
+    // margin-bottom: 10px;
+
+    @media(max-width: 767px) {
+      align-items: center;
+      margin-bottom: 20px;
+
+      input {
+        height: 40px;
+      }
+    }
+  }
+
+  .search-btn {
+    padding: 5px 25px;
+    background: transparent;
+    transition: 0.5s ease;
+    color: #fff;
+    border: 2px solid #faad14;
+
+    &:hover {
+      background: #faad14;
+    }
+  }
+}

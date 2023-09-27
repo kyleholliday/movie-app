@@ -1,0 +1,49 @@
+.top-text-container {
+  padding-top: 400px;
+  position: relative;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+
+  @media(max-width: 767px) {
+    padding-top: 0;
+
+    h1,
+    p {
+      display: none;
+    }
+  }
+
+  h1 {
+    font-weight: 700;
+    text-shadow: #000 2px 2px 5px;
+  }
+
+  p {
+    text-shadow: #000 2px 2px 5px;
+    margin-bottom: 0;
+  }
+
+  .right-side {
+    text-align: right;
+
+    @media(max-width:767px) {
+      display: none;
+    }
+
+    p {
+      font-size: 0.9rem;
+      color: #9ab;
+      padding-right: 7px;
+    }
+  }
+}
+
+.mobile-only-box {
+  margin-bottom: -80px;
+
+  @media (min-width:768px) {
+    display: none;
+  }
+}

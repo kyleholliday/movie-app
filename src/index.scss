@@ -1,0 +1,242 @@
+body {
+  background: #0a1016 !important;
+  // background-repeat-x: repeat;
+  // background-repeat-y: no-repeat;
+  // background-color: #2c3440 !important;
+  background-image: linear-gradient(to bottom, #14181c calc(0px), #14181c calc(250px + 0px), #2c3440 calc(251px + 0px)) !important;
+  background-position: 0 0 !important;
+  height: 100%;
+}
+
+.main {
+  background: #14181c 0 -1px repeat-x;
+  padding-bottom: 100px;
+  min-height: 100vh;
+
+  &:before {
+    content: " ";
+    display: table;
+  }
+
+  // .top-home-container {
+  //   padding-top: 400px;
+  //   position: relative;
+  // }
+}
+
+.backdrop-container {
+  height: 675px;
+  min-height: 675px;
+  left: 0;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 0;
+
+  @media(max-width: 767px) {
+    // height: 0;
+    // padding-top: 56.25%;
+    // min-height: 0;
+    // position: relative;
+    // top: 0;
+    display: none;
+  }
+
+  .backdrop-wrapper {
+    height: 675px;
+    min-height: 675px;
+    left: 50%;
+    position: absolute;
+    top: 0;
+    transform: translateX(-50%);
+    width: 1200px;
+    z-index: 0;
+
+    @media(max-width: 767px) {
+      height: 0;
+      padding-top: 56.25%;
+      overflow: hidden;
+      width: 100%;
+      left: 0;
+      transform: none;
+      min-height: 0;
+
+      &:after {
+        background: linear-gradient(180deg, rgba(20, 24, 28, 0) 0, rgba(20, 24, 28, 0) 50%, rgba(20, 24, 28, .75) 75%, #14181c);
+        bottom: 0;
+        content: "";
+        display: block;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+      }
+    }
+
+    .backdropplaceholder {
+      image-rendering: pixelated;
+      opacity: .35;
+      transition: opacity 0s;
+      transition-delay: 1s;
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+      height: 99.95%;
+      min-height: 99.95%;
+      position: absolute;
+      width: 100%;
+    }
+
+    .backdropimage {
+      background-position: center -15px;
+      opacity: 1;
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+      height: 99.95%;
+      min-height: 99.95%;
+      position: absolute;
+      width: 100%;
+
+      @media(max-width: 767px) {
+        height: 137.75%;
+        background-position: center 0 !important;
+        background-size: 100% auto;
+        left: 0;
+        top: 0;
+      }
+    }
+
+    .backdropmask {
+      padding-top: 500px;
+      position: relative;
+
+      &:before {
+        background-image: linear-gradient(90deg, #14181d 0, rgba(20, 24, 29, .986) .97%, rgba(20, 24, 29, .945) 2.07833333%, rgba(20, 24, 29, .883) 3.29666667%, rgba(20, 24, 29, .803) 4.60166667%, rgba(20, 24, 29, .711) 5.96666667%, rgba(20, 24, 29, .61) 7.365%, rgba(20, 24, 29, .504) 8.77166667%, rgba(20, 24, 29, .398) 10.16%, rgba(20, 24, 29, .296) 11.505%, rgba(20, 24, 29, .203) 12.78%, rgba(20, 24, 29, .122) 13.95833333%, rgba(20, 24, 29, .059) 15.01666667%, rgba(20, 24, 29, .016) 15.92833333%, rgba(20, 24, 29, 0) 16.66666667%, rgba(20, 24, 29, 0) 83.33333333%, rgba(20, 24, 29, .016) 84.07166667%, rgba(20, 24, 29, .059) 84.98333333%, rgba(20, 24, 29, .122) 86.04166667%, rgba(20, 24, 29, .203) 87.22%, rgba(20, 24, 29, .296) 88.495%, rgba(20, 24, 29, .398) 89.84%, rgba(20, 24, 29, .504) 91.22833333%, rgba(20, 24, 29, .61) 92.635%, rgba(20, 24, 29, .711) 94.03333333%, rgba(20, 24, 29, .803) 95.39833333%, rgba(20, 24, 29, .883) 96.70333333%, rgba(20, 24, 29, .945) 97.92166667%, rgba(20, 24, 29, .986) 99.03%, #14181d), linear-gradient(0deg, #14181d 0, #14181d 21.48148148%, rgba(20, 24, 29, .986) 23.63703704%, rgba(20, 24, 29, .945) 26.1%, rgba(20, 24, 29, .883) 28.80740741%, rgba(20, 24, 29, .803) 31.70740741%, rgba(20, 24, 29, .711) 34.74074074%, rgba(20, 24, 29, .61) 37.84814815%, rgba(20, 24, 29, .504) 40.97407407%, rgba(20, 24, 29, .398) 44.05925926%, rgba(20, 24, 29, .296) 47.04814815%, rgba(20, 24, 29, .203) 49.88148148%, rgba(20, 24, 29, .122) 52.5%, rgba(20, 24, 29, .059) 54.85185185%, rgba(20, 24, 29, .016) 56.87777778%, rgba(20, 24, 29, 0) 58.51851852%);
+        background-repeat: no-repeat;
+        content: "";
+        display: block;
+        height: 825px;
+        min-height: 775px;
+        left: 50%;
+        pointer-events: none;
+        position: absolute;
+        top: 0;
+        transform: translateX(-50%);
+        width: 1200px;
+        z-index: 0;
+
+        @media(max-width: 767px) {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+.heading-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 7px 10px;
+  align-items: flex-end;
+  margin-top: 20px;
+
+  .heading {
+    color: #14181c;
+    display: inline-block;
+    margin: 0;
+    background: #faad14;
+    padding: 10px 16px;
+    position: relative;
+    top: 30px;
+    z-index: 2;
+    left: -18px;
+    border-radius: 4px;
+
+    @media(max-width:767px) {
+      top: 0;
+      left: 0;
+      padding: 10px 0;
+      background: none;
+      color: #fff;
+      text-shadow: #000 2px 0 5px;
+      font-weight: 700;
+    }
+  }
+}
+
+a.see-more {
+  text-decoration: none;
+  color: #faad14;
+  padding-left: 6px;
+}
+
+.movie-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 0;
+}
+
+.movie-list .movie {
+  flex-basis: calc(16.6667% - 12px);
+  margin-bottom: 12px;
+  transition: transform 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px;
+  border: 2px solid rgb(255 255 255 / 21%);
+
+  @media(max-width: 767px) {
+    flex-basis: calc(33.3% - 12px);
+  }
+
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+    background: rgb(0 0 0 / 77%);
+    /* Transparent black overlay */
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.3s ease;
+
+    .overlay-text {
+      color: #fff;
+      font-size: 1.2rem;
+      font-weight: bold;
+      text-align: center;
+      padding: 0 8px;
+
+      &:first-child {
+        margin-bottom: 0;
+      }
+
+      &:nth-child(2) {
+        font-weight: 400;
+      }
+    }
+  }
+
+  &:hover {
+    transform: translateY(-10px);
+
+    .overlay {
+      opacity: 1;
+    }
+  }
+}
+
+.movie-list .movie img {
+  width: 100%;
+  height: 300px;
+  max-width: 100%;
+  height: -webkit-fill-available;
+}

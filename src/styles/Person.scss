@@ -1,0 +1,82 @@
+.person-info {
+  position: relative;
+  z-index: 3;
+  color: rgb(153, 170, 187);
+
+  .left-side {
+    h1 {
+      color: #fff;
+      font-weight: bold;
+
+      &.tv {
+        margin-top: 20px;
+        border-top: 1px solid rgb(153, 170, 187);
+        padding-top: 20px;
+      }
+
+      span {
+        display: block;
+        font-size: 1rem;
+        text-transform: uppercase;
+        letter-spacing: .075em;
+        color: rgb(153, 170, 187);
+        font-weight: 400;
+      }
+    }
+  }
+
+  .films-and-sort {
+    display: flex;
+    justify-content: space-between;
+    padding-right: 20px;
+
+    @media (max-width: 767px) {
+      border-top: 1px solid rgb(153, 170, 187);
+      padding-top: 10px;
+      margin-top: 15px;
+    }
+
+    label {
+      margin-right: 8px;
+    }
+
+    select {
+      background: none;
+      color: #fff;
+      border: 0;
+    }
+  }
+
+  .right-side {
+    h1 {
+      font-weight: bold;
+      color: #fff;
+
+      .as-director {
+        font-size: 1rem;
+        color: rgb(153, 170, 187);
+        font-weight: 400;
+      }
+    }
+
+    img {
+      border-radius: 4px;
+      margin-bottom: 10px;
+      border: 1px solid hsla(0, 0%, 100%, .25);
+    }
+
+    .view-more {
+      color: #def;
+      background: none;
+      border: 0;
+    }
+
+    @media(max-width: 767px) {
+      margin-top: 10px;
+
+      .view-more {
+        padding-left: 0;
+      }
+    }
+  }
+}
