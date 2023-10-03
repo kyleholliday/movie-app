@@ -10,6 +10,13 @@ const Navbar = () => {
     if (searchTerm.trim() !== '') {
       // Navigate to the search results page with the search query
       navigate(`/search?query=${encodeURIComponent(searchTerm)}`);
+      // Hide the navbar by changing the aria-expanded attribute
+      const navbarToggler = document.querySelector('.navbar-toggler');
+      const navbar = document.querySelector('.navbar-collapse');
+      if (navbarToggler) {
+        navbarToggler.ariaExpanded = false;
+        navbar.classList.remove('show');
+      }
     }
   };
 
@@ -43,22 +50,42 @@ const Navbar = () => {
           <div className="collapse navbar-collapse" id="navbarTogglerMain">
             <ul className="navbar-nav nav-underline me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <NavLink className="navlinks" to="/">
+                <NavLink
+                  className="navlinks"
+                  to="/"
+                  data-toggle="collapse"
+                  data-target="#navbarTogglerMain"
+                >
                   Home
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink className="navlinks" to="/now-playing">
+                <NavLink
+                  className="navlinks"
+                  to="/now-playing"
+                  data-toggle="collapse"
+                  data-target="#navbarTogglerMain"
+                >
                   Now Playing
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink className="navlinks" to="/upcoming">
+                <NavLink
+                  className="navlinks"
+                  to="/upcoming"
+                  data-toggle="collapse"
+                  data-target="#navbarTogglerMain"
+                >
                   Upcoming
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink className="navlinks" to="/tv-trending">
+                <NavLink
+                  className="navlinks"
+                  to="/tv-trending"
+                  data-toggle="collapse"
+                  data-target="#navbarTogglerMain"
+                >
                   Trending TV
                 </NavLink>
               </li>

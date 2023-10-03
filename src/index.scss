@@ -223,13 +223,19 @@ a.see-more {
         font-weight: 400;
       }
     }
+
+    @media(max-width: 767px) {
+      display: none;
+    }
   }
 
-  &:hover {
-    transform: translateY(-10px);
+  @media(min-width: 768px) {
+    &:hover {
+      transform: translateY(-10px);
 
-    .overlay {
-      opacity: 1;
+      .overlay {
+        opacity: 1;
+      }
     }
   }
 }
