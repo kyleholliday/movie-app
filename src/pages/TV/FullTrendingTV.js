@@ -19,6 +19,7 @@ const TVTrendingPage = () => {
       })
       .then((response) => {
         setShows(response.data.results);
+        document.title = 'Trending TV';
       })
       .catch((error) => {
         console.error('Error fetching Trending TV shows:', error);

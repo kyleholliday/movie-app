@@ -14,6 +14,10 @@ const Footer = () => {
             rel="noreferrer"
           >
             TMDB
+          </a>{' '}
+          and streaming information provided by{' '}
+          <a href="https://www.justwatch.com/" target="_blank" rel="noreferrer">
+            JustWatch
           </a>
         </p>
         {/* <ul>

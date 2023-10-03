@@ -46,12 +46,12 @@ const Backdrop = () => {
           const randomNum =
             Math.floor(Math.random() * mobileNumberArray.length) + 1;
           setRandomNumber(randomNum);
-          console.log(randomNum);
         }
+        document.title = 'Bijou - Home';
       })
       .catch((error) => {
         console.error('Error fetching the Popular movies:', error);
-        setFirstMovieBackdropPath('4HodYYKEIsGOdinkGi2Ucz6X9i0'); // Provide a default image path
+        setFirstMovieBackdropPath('4HodYYKEIsGOdinkGi2Ucz6X9i0');
         setRandomImageText('Spider-Man: Across the Spider-Verse');
         setRandomImageTextDir(
           'Joaquim Dos Santos, Justin K. Thompson, Kemp Powers, 2023'
@@ -69,141 +69,157 @@ const Backdrop = () => {
     1: {
       id: '4HodYYKEIsGOdinkGi2Ucz6X9i0',
       text: 'Spider-Man: Across the Spider-Verse',
-      dir: 'Joaquim Dos Santos, Justin K. Thompson, Kemp Powers, 2023',
+      dir: 'Dir. Joaquim Dos Santos, Justin K. Thompson, Kemp Powers, 2023',
     },
     // Alien
     2: {
       id: 'AmR3JG1VQVxU8TfAvljUhfSFUOx',
       text: 'Alien',
-      dir: 'Ridley Scott, 1979',
+      dir: 'Dir. Ridley Scott, 1979',
     },
     // North by Northwest
     3: {
       id: 'OR8oloCZ3klJtB7Y0i8pSqWw5a',
       text: 'North by Northwest',
-      dir: 'Alfred Hitchcock, 1959',
+      dir: 'Dir. Alfred Hitchcock, 1959',
     },
     // Fight Club
     4: {
       id: 'hZkgoQYus5vegHoetLkCJzb17zJ',
       text: 'Fight Club',
-      dir: 'David Fincher, 1999',
+      dir: 'Dir. David Fincher, 1999',
     },
     // Dr. Strangelove
     5: {
       id: 'sTp8K0SfcC2RQef1Tu160z3niHO',
       text: 'Dr. Strangelove or: How I Learned to Stop Worrying and Love the Bomb',
-      dir: 'Stanley Kubrick, 1964',
+      dir: 'Dir. Stanley Kubrick, 1964',
     },
     // Blade Runner 2049
     6: {
       id: 'uKbX1ha7KWyTecvpPpRCB3iFfj3',
       text: 'Blade Runner 2049',
-      dir: 'Denis Villeneuve, 2017',
+      dir: 'Dir. Denis Villeneuve, 2017',
     },
-    // Oppenheimer
+    // Casino
     7: {
       id: '2W9HjAYWNug5RwyrEtrneXeL94Z',
       text: 'Casino',
-      dir: 'Martin Scorsese, 1995',
+      dir: 'Dir. Martin Scorsese, 1995',
     },
-    // Reservoir Dogs
+    // The Sopranos
     8: {
-      id: 'jqFjgNnxpXIXWuPsyfqmcLXRo9p',
-      text: 'Reservoir Dogs',
-      dir: 'Quentin Tarantino, 1992',
+      id: '3ltpFyIfAtGjRMRJdECFoQQCfzx',
+      text: 'The Sopranos',
+      dir: 'Created by David Chase, 1999',
     },
     // Dark Knight
     9: {
       id: 'nMKdUUepR0i5zn0y1T4CsSB5chy',
       text: 'The Dark Knight',
-      dir: 'Christopher Nolan, 2008',
+      dir: 'Dir. Christopher Nolan, 2008',
     },
     // 2001
     10: {
       id: 'w5IDXtifKntw0ajv2co7jFlTQDM',
       text: '2001: A Space Odyssey',
-      dir: 'Stanley Kubrick, 1968',
+      dir: 'Dir. Stanley Kubrick, 1968',
     },
     // Silence of the Lambs
     11: {
       id: 'mfwq2nMBzArzQ7Y9RKE8SKeeTkg',
       text: 'The Silence of the Lambs',
-      dir: 'Jonathan Demme, 1991',
+      dir: 'Dir. Jonathan Demme, 1991',
     },
-    // Jurassic Park
+    // Atlanta
     12: {
-      id: '79bJL9ydAMYVltuNTt4VhxORqIz',
-      text: 'Jurassic Park',
-      dir: 'Steven Spielberg, 1993',
+      id: 'vN84JlTvOZvZzxi0D2SJQNFvtjS',
+      text: 'Atlanta',
+      dir: 'Created by Donald Glover, 2016',
     },
     // Princess Mononoke
     13: {
       id: 'gl0jzn4BupSbL2qMVeqrjKkF9Js',
       text: 'Princess Mononoke',
-      dir: 'Hayao Miyazaki, 1997',
+      dir: 'Dir. Hayao Miyazaki, 1997',
     },
     // Fletch
     14: {
       id: 'lviuNQGRNFDng0iJlkc34w9q86Q',
       text: 'Fletch',
-      dir: 'Michael Ritchie, 1985',
+      dir: 'Dir. Michael Ritchie, 1985',
     },
     // Under the Skin
     15: {
       id: 'sfqnvsK7sG0id3MLNg0FQIgyogu',
       text: 'Under the Skin',
-      dir: 'Jonathan Glazer, 2013',
+      dir: 'Dir. Jonathan Glazer, 2013',
     },
     // Cuckoo's Nest
     16: {
       id: 'qUq3QTr2KLvGIcN0GaaaYx9bbyH',
       text: "One Flew Over the Cuckoo's Next",
-      dir: 'Miloš Forman, 1975',
+      dir: 'Dir. Miloš Forman, 1975',
     },
     // Worst Person in the World
     17: {
       id: 'iTPTdfEGYGwbELLLvNnmgKZpVZj',
       text: 'The Worst Person in the World',
-      dir: 'Joachim Trier, 2021',
+      dir: 'Dir. Joachim Trier, 2021',
     },
-    // Talk to Me
+    // Incredibles 2
     18: {
       id: 'mabuNsGJgRuCTuGqjFkWe1xdu19',
       text: 'Incredibles 2',
-      dir: 'Brad Bird, 2018',
+      dir: 'Dir. Brad Bird, 2018',
     },
     // Hail Caesar
     19: {
       id: 'zIUigIht3f9osNGyleF6B3jBbl7',
       text: 'Hail, Caesar!',
-      dir: 'Joel Coen, Ethan Coen, 2016',
+      dir: 'Dir. Joel Coen, Ethan Coen, 2016',
     },
     // Persona
     20: {
       id: 'sj2aZDetPE8RoOCAm5QJitCNfLr',
       text: 'Persona',
-      dir: 'Ingmar Bergman, 1966',
+      dir: 'Dir. Ingmar Bergman, 1966',
     },
+    // School of Rock
     21: {
       id: '4y9mFnyDZLfLVqUvcQUuzVejrok',
       text: 'School of Rock',
-      dir: 'Richard Linklater, 2003',
+      dir: 'Dir. Richard Linklater, 2003',
     },
+    // Scream
     22: {
       id: 'tdcb0RHusaQxScWORevtKQ0u9NG',
       text: 'Scream',
-      dir: 'Wes Craven, 1996',
+      dir: 'Dir. Wes Craven, 1996',
     },
+    // ET
     23: {
       id: 'mXLVA0YL6tcXi6SJSuAh9ONXFj5',
       text: 'E.T. the Extra-Terrestrial',
-      dir: 'Steven Spielberg, 1982',
+      dir: 'Dir. Steven Spielberg, 1982',
     },
+    //  The Last Jedi
     24: {
       id: 'b87OHKmn3kxXO1b20WzcZVJ8PRR',
       text: 'Star Wars: The Last Jedi',
-      dir: 'Rian Johnson, 2017',
+      dir: 'Dir. Rian Johnson, 2017',
+    },
+    // Mad Men
+    25: {
+      id: 'gGRfablBSOc2k8bTaqjnfrYtLaT',
+      text: 'Mad Men',
+      dir: 'Created by Matthew Weiner, 2007',
+    },
+    // Breaking Bad
+    26: {
+      id: 'tsRy63Mu5cu8etL1X7ZLyf7UP1M',
+      text: 'Breaking Bad',
+      dir: 'Created by Vince Gilligan, 2008',
     },
   };
 
@@ -236,7 +252,7 @@ const Backdrop = () => {
             </div>
             <div className="right-side">
               <p>{randomImageText}</p>
-              <p>Dir. {randomImageTextDir}</p>
+              <p>{randomImageTextDir}</p>
             </div>
           </div>
         </>

@@ -21,11 +21,12 @@ const SearchResults = () => {
           api_key: apiKey,
           language: 'en-US',
           query: query,
-          include_adult: false,
+          include_adult: true,
         },
       })
       .then((response) => {
         setSearchResults(response.data.results);
+        document.title = `Search results for: ${query}`;
       })
       .catch((error) => {
         console.error('Error fetching search results:', error);

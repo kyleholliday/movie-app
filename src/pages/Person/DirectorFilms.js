@@ -39,7 +39,6 @@ const DirectorFilms = () => {
         console.error('Error fetching Director Films:', error);
       });
 
-    // Fetch director details
     axios
       .get(directorDetailsEndpoint, {
         params: {
@@ -49,6 +48,7 @@ const DirectorFilms = () => {
       })
       .then((response) => {
         setDirectorDetails(response.data);
+        document.title = `${response.data.name} as Director`;
       })
       .catch((error) => {
         console.error('Error fetching Director Details:', error);

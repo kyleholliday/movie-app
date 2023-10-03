@@ -20,6 +20,7 @@ const UpcomingMoviesPage = () => {
       })
       .then((response) => {
         setMovies(response.data.results);
+        document.title = 'Upcoming Movies';
       })
       .catch((error) => {
         console.error('Error fetching the Now Playing movies:', error);

@@ -7,14 +7,6 @@ const NowPlayingMoviesPage = () => {
 
   useEffect(() => {
     const apiKey = process.env.REACT_APP_API_KEY;
-    // const currentDate = new Date();
-    // const endDate = currentDate.toISOString().split('T')[0]; // Get today's date in "YYYY-MM-DD" format
-
-    // currentDate.setDate(currentDate.getDate() - 28);
-    // Subtract however many days
-    // const startDate = currentDate.toISOString().split('T')[0];
-    // Get the date four weeks ago in "YYYY-MM-DD" format
-
     const endpoint = `https://api.themoviedb.org/3/movie/now_playing`;
 
     axios
@@ -27,6 +19,7 @@ const NowPlayingMoviesPage = () => {
       })
       .then((response) => {
         setMovies(response.data.results);
+        document.title = 'Now Playing Movies';
       })
       .catch((error) => {
         console.error('Error fetching the Now Playing movies:', error);

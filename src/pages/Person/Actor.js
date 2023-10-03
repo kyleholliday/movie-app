@@ -50,7 +50,6 @@ const ActorDetails = () => {
         movieCredits.sort((a, b) => b.popularity - a.popularity);
         tvCredits.sort((a, b) => b.popularity - a.popularity);
 
-        // Get their details
         axios
           .get(detailsUrl, {
             params: {
@@ -67,6 +66,7 @@ const ActorDetails = () => {
               movieCredits,
               tvCredits,
             });
+            document.title = `${actorDetails.name} - Movies and TV`;
           })
           .catch((detailsError) => {
             console.error('Error fetching actor details:', detailsError);
@@ -208,8 +208,6 @@ const ActorDetails = () => {
   if (!actorData) {
     return <div>Loading...</div>;
   }
-
-  console.log(actorData);
 
   return (
     <div className="container">

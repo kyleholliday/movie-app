@@ -4,7 +4,7 @@
 
   ul {
     padding: 0 12px;
-    margin: 40px 0 0;
+    margin: 60px 0 20px;
     list-style: none;
     display: flex;
     justify-content: space-around;
@@ -12,9 +12,7 @@
     li {
       flex-basis: calc(25% - 12px);
       text-align: center;
-      // background: pink;
       color: black;
-      // padding: 80px 0;
       border-radius: 4px;
       position: relative;
       overflow: hidden;
@@ -42,7 +40,11 @@
         transition: 0.3s ease;
 
         &:hover {
-          background: #faad14;
+          background: transparent;
+
+          p {
+            color: #faad14;
+          }
         }
 
         p {
@@ -50,6 +52,7 @@
           font-weight: bold;
           font-size: 1.6rem;
           text-shadow: #000 2px 2px 5px;
+          transition: 0.3s ease;
         }
       }
     }

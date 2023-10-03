@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import '../../styles/Genres.scss';
 
 const TopGenres = () => {
@@ -10,7 +10,7 @@ const TopGenres = () => {
   return (
     <div className="genres-bubbles container">
       {/* <h2>Top Three Current Genres</h2> */}
-      <div className="row">
+      {/* <div className="row">
         <ul>
           <li>
             <a href="/">
@@ -30,7 +30,7 @@ const TopGenres = () => {
           </li>
           <li>
             <a href="/">
-              <img src="/action.jpg" className="img-fluid" alt="" />
+              <img src="/drama.jpg" className="img-fluid" alt="" />
               <div className="overlay">
                 <p>Drama</p>
               </div>
@@ -38,14 +38,14 @@ const TopGenres = () => {
           </li>
           <li>
             <a href="/">
-              <img src="/action.jpg" className="img-fluid" alt="" />
+              <img src="/horror.jpg" className="img-fluid" alt="" />
               <div className="overlay">
                 <p>Horror</p>
               </div>
             </a>
           </li>
         </ul>
-      </div>
+      </div> */}
     </div>
   );
 };

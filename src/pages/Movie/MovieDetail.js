@@ -1,15 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link, useParams } from 'react-router-dom';
+import { OverlayTrigger, Tooltip } from 'react-bootstrap';
 import '../../styles/MovieDetail.scss';
 
 const MovieDetail = () => {
   const { movieId } = useParams();
   const [movie, setMovie] = useState(null);
+  const [usProviders, setUsProviders] = useState(null);
 
   useEffect(() => {
     const apiKey = process.env.REACT_APP_API_KEY;
     const endpoint = `https://api.themoviedb.org/3/movie/${movieId}?append_to_response=credits%2Csimilar%2Cvideos%2Cimages`;
+    const providersEndpoint = `https://api.themoviedb.org/3/movie/${movieId}/watch/providers`;
 
     axios
       .get(endpoint, {
@@ -19,9 +22,24 @@ const MovieDetail = () => {
       })
       .then((response) => {
         setMovie(response.data);
+        document.title = response.data.title;
       })
       .catch((error) => {
         console.error('Error fetching Movie Details:', error);
+      });
+
+    axios
+      .get(providersEndpoint, {
+        params: {
+          api_key: apiKey,
+        },
+      })
+      .then((response) => {
+        const usData = response.data.results.US;
+        setUsProviders(usData);
+      })
+      .catch((error) => {
+        console.error('Error fetching Watch Providers', error);
       });
   }, [movieId]);
 
@@ -69,7 +87,8 @@ const MovieDetail = () => {
         video.name.toLowerCase().includes('official trailer') ||
         video.name.toLowerCase().includes('official us trailer') ||
         video.name.toLowerCase().includes('original theatrical') ||
-        video.name.toLowerCase().includes('theatrical trailer')
+        video.name.toLowerCase().includes('theatrical trailer') ||
+        video.name.toLowerCase().includes('trailer 1')
     );
 
     return matchingVideos.length > 0
@@ -82,13 +101,12 @@ const MovieDetail = () => {
     findLastTrailerByName('official trailer') ||
     findLastTrailerByName('official us trailer') ||
     findLastTrailerByName('original theatrical') ||
-    findLastTrailerByName('theatrical trailer');
+    findLastTrailerByName('theatrical trailer') ||
+    findLastTrailerByName('trailer 1');
 
   if (!movie) {
     return <div>Loading...</div>;
   }
-
-  console.log(movie);
 
   return (
     <div className="container">
@@ -98,7 +116,7 @@ const MovieDetail = () => {
           alt={`${movie.title} backdrop`}
         />
       )} */}
-      {movie.images && movie.images.backdrops.length > 0 && (
+      {/* {movie.images && movie.images.backdrops.length > 0 && (
         <div className="backdrops">
           {movie.images.backdrops.map((backdrop, index) => (
             <img
@@ -108,7 +126,7 @@ const MovieDetail = () => {
             />
           ))}
         </div>
-      )}
+      )} */}
       <div className="full-movie-container">
         <div className="row">
           <div className="left-side col-10 offset-1 col-md-5 offset-md-0 col-lg-3 offset-lg-1">
@@ -186,14 +204,41 @@ const MovieDetail = () => {
                 <ul className="cast-list">
                   {movie.credits.cast.slice(0, 20).map((castMember) => (
                     <li key={castMember.id}>
-                      <Link to={`/actor/${castMember.id}`}>
-                        {castMember.name}
-                      </Link>
+                      <OverlayTrigger
+                        placement="top"
+                        overlay={
+                          <Tooltip id={`tooltip-${castMember.id}`}>
+                            {castMember.character}
+                          </Tooltip>
+                        }
+                      >
+                        <Link to={`/actor/${castMember.id}`}>
+                          {castMember.name}
+                        </Link>
+                      </OverlayTrigger>
                     </li>
                   ))}
                 </ul>
               </>
             )}
+            <div className="us-providers">
+              {usProviders && usProviders.flatrate && (
+                <>
+                  <p>Stream On:</p>
+                  <ul>
+                    {/* You can map through the flatrate providers and display them here */}
+                    {usProviders.flatrate.map((provider) => (
+                      <li key={provider.provider_id}>
+                        <img
+                          src={`https://image.tmdb.org/t/p/original${provider.logo_path}`}
+                          alt={provider.provider_name}
+                        />
+                      </li>
+                    ))}
+                  </ul>
+                </>
+              )}
+            </div>
             <p>{timeConverter(movie.runtime)}</p>
             {movie.genres.length > 0 && (
               <div className="genres">
