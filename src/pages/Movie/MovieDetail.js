@@ -278,6 +278,7 @@ const MovieDetail = () => {
                               {castMember.character}
                             </Tooltip>
                           }
+                          delay={{ show: 300, hide: 0 }}
                         >
                           <Link to={`/actor/${castMember.id}`}>
                             {castMember.name}

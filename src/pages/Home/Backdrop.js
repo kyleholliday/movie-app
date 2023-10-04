@@ -223,6 +223,12 @@ const Backdrop = () => {
       text: 'Breaking Bad',
       dir: 'Created by Vince Gilligan, 2008',
     },
+    // Poker Face
+    27: {
+      id: 'yfb5zQjpG4nWV7SQCy5Yp2EKbKB',
+      text: 'Poker Face',
+      dir: 'Created by Rian Johnson, 2023',
+    },
   };
 
   const backdropStyle = {

@@ -241,18 +241,25 @@ const TVDetail = () => {
                 <ul className="cast-list">
                   {show.credits.cast.slice(0, 20).map((castMember) => (
                     <li key={castMember.id}>
-                      <OverlayTrigger
-                        placement="top"
-                        overlay={
-                          <Tooltip id={`tooltip-${castMember.id}`}>
-                            {castMember.character}
-                          </Tooltip>
-                        }
-                      >
+                      {castMember.character ? (
+                        <OverlayTrigger
+                          placement="top"
+                          overlay={
+                            <Tooltip id={`tooltip-${castMember.id}`}>
+                              {castMember.character}
+                            </Tooltip>
+                          }
+                          delay={{ show: 300, hide: 0 }}
+                        >
+                          <Link to={`/actor/${castMember.id}`}>
+                            {castMember.name}
+                          </Link>
+                        </OverlayTrigger>
+                      ) : (
                         <Link to={`/actor/${castMember.id}`}>
                           {castMember.name}
                         </Link>
-                      </OverlayTrigger>
+                      )}
                     </li>
                   ))}
                 </ul>
