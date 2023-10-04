@@ -16,6 +16,7 @@ const DirectorFilms = () => {
     const apiKey = process.env.REACT_APP_API_KEY;
     const movieCreditsEndpoint = `https://api.themoviedb.org/3/person/${directorId}/movie_credits`;
     const directorDetailsEndpoint = `https://api.themoviedb.org/3/person/${directorId}`;
+    window.scrollTo(0, 0);
 
     // Fetch movies they have directed
     axios

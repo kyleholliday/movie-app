@@ -14,6 +14,7 @@ const ActorDetails = () => {
     const apiKey = process.env.REACT_APP_API_KEY;
     const combinedCreditsUrl = `https://api.themoviedb.org/3/person/${actorId}/combined_credits`;
     const detailsUrl = `https://api.themoviedb.org/3/person/${actorId}`;
+    window.scrollTo(0, 0);
 
     // Fetch combined credits for Movies + TV
     axios

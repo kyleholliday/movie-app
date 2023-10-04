@@ -13,6 +13,7 @@ const MovieDetail = () => {
     const apiKey = process.env.REACT_APP_API_KEY;
     const endpoint = `https://api.themoviedb.org/3/movie/${movieId}?append_to_response=credits%2Csimilar%2Cvideos%2Cimages`;
     const providersEndpoint = `https://api.themoviedb.org/3/movie/${movieId}/watch/providers`;
+    window.scrollTo(0, 0);
 
     axios
       .get(endpoint, {

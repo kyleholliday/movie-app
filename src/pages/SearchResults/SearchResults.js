@@ -14,6 +14,7 @@ const SearchResults = () => {
   useEffect(() => {
     const apiKey = process.env.REACT_APP_API_KEY;
     const endPoint = 'https://api.themoviedb.org/3/search/multi';
+    window.scrollTo(0, 0);
 
     axios
       .get(endPoint, {
@@ -21,7 +22,6 @@ const SearchResults = () => {
           api_key: apiKey,
           language: 'en-US',
           query: query,
-          include_adult: true,
         },
       })
       .then((response) => {

@@ -12,6 +12,7 @@ const TVDetail = () => {
   useEffect(() => {
     const apiKey = process.env.REACT_APP_API_KEY;
     const endpoint = `https://api.themoviedb.org/3/tv/${tvId}?append_to_response=videos%2Ccredits%2Cimages`;
+    window.scrollTo(0, 0);
 
     axios
       .get(endpoint, {
