@@ -128,8 +128,71 @@ const MovieDetail = () => {
         </div>
       )} */}
       <div className="full-movie-container">
-        <div className="row">
-          <div className="left-side col-10 offset-1 col-md-5 offset-md-0 col-lg-3 offset-lg-1">
+        <div className="row mobile-container">
+          <div className="left-mobile col-7 d-block d-sm-none">
+            <h1 className="title">{movie.title}</h1>
+            <p className="year">
+              {getReleaseYear(movie.release_date)} &#8226; Directed by
+            </p>
+            {movie.credits.crew.some(
+              (crewMember) => crewMember.job.toLowerCase() === 'director'
+            ) ? (
+              <p>
+                {movie.credits.crew
+                  .filter(
+                    (crewMember) => crewMember.job.toLowerCase() === 'director'
+                  )
+                  .map((director, index, array) => (
+                    <span key={director.id}>
+                      <Link
+                        to={`/director-films/${director.id}`}
+                        className="director"
+                      >
+                        {director.name}
+                      </Link>
+                      {index < array.length - 1 ? ', ' : ''}
+                    </span>
+                  ))}
+              </p>
+            ) : (
+              <p>Director information is unavailable</p>
+            )}
+            {trailerLink && (
+              <div className="button-holder">
+                <a
+                  href={`https://www.youtube.com/watch?v=${trailerLink.key}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="main-button"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    className="bi bi-play-fill"
+                    viewBox="0 0 16 16"
+                  >
+                    <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z" />
+                  </svg>
+                  Trailer
+                </a>
+                <p>{movie.runtime} mins</p>
+              </div>
+            )}
+          </div>
+          <div className="right-mobile col-5 d-block d-sm-none">
+            <img
+              src={
+                movie.poster_path
+                  ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
+                  : '/nope.png'
+              }
+              alt={movie.title}
+              className="img-fluid"
+            />
+          </div>
+          <div className="left-side col-10 offset-1 col-md-5 offset-md-0 col-lg-3 offset-lg-1 d-none d-sm-block">
             <img
               src={
                 movie.poster_path
@@ -163,12 +226,14 @@ const MovieDetail = () => {
             )}
           </div>
           <div className="right-side col-12 col-md-6">
-            <h1 className="title">{movie.title}</h1>
-            <p>{getReleaseYear(movie.release_date)}</p>
+            <h1 className="title d-none d-sm-block">{movie.title}</h1>
+            <p className="d-none d-sm-block">
+              {getReleaseYear(movie.release_date)}
+            </p>
             {movie.credits.crew.some(
               (crewMember) => crewMember.job.toLowerCase() === 'director'
             ) ? (
-              <p>
+              <p className="d-none d-sm-block">
                 Directed by{' '}
                 {movie.credits.crew
                   .filter(

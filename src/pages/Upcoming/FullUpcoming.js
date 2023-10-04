@@ -41,7 +41,7 @@ const UpcomingMoviesPage = () => {
     <div className="container">
       <div className="full-list">
         <h3 className="heading">Upcoming Movies</h3>
-        <ul className="movie-list">
+        <ul className="movie-list full-list-movies">
           {movies.map((movie) => (
             <li key={movie.id} className="movie">
               <a href={`/movie/${movie.id}`}>

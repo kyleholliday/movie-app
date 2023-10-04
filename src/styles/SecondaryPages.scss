@@ -17,7 +17,7 @@
       flex-basis: calc(20% - 12px);
 
       @media(max-width:767px) {
-        flex-basis: calc(25% - 12px);
+        flex-basis: calc(33.33% - 12px);
       }
     }
 
@@ -28,6 +28,21 @@
       .movie {
         margin-bottom: 10px;
       }
+    }
+
+    &.full-list-movies {
+      .movie {
+        @media(max-width: 767px) {
+          &:last-child {
+            display: none;
+          }
+
+          &:nth-last-child(2) {
+            display: none;
+          }
+        }
+      }
+
     }
   }
 }

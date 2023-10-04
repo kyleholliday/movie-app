@@ -155,13 +155,18 @@ body {
     @media(max-width:767px) {
       top: 0;
       left: 0;
-      padding: 10px 0;
       background: none;
       color: #fff;
-      text-shadow: #000 2px 0 5px;
-      font-weight: 700;
+      padding: 10px 0;
+      font-weight: bold;
+      font-size: 2rem;
     }
   }
+}
+
+.border-bottom-mobile {
+  padding-bottom: 30px;
+  border-bottom: 1px solid #404347;
 }
 
 a.see-more {
@@ -190,6 +195,11 @@ a.see-more {
 
   @media(max-width: 767px) {
     flex-basis: calc(33.3% - 12px);
+    height: 159px;
+
+    img {
+      height: -webkit-fill-available
+    }
   }
 
   .overlay {

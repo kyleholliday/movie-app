@@ -55,6 +55,7 @@ const UpcomingMovies = () => {
       <a href="/upcoming" className="see-more">
         See More
       </a>
+      <div className="border-bottom-mobile"></div>
     </div>
   );
 };

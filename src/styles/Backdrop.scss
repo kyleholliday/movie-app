@@ -41,9 +41,38 @@
 }
 
 .mobile-only-box {
-  margin-bottom: -80px;
+  color: #fff;
+  // text-align: center;
+  // background-image: url('../../public/chairs.jpg');
+  // height: 200px;
+  position: relative;
+  margin-bottom: -70px;
+
+  h1 {
+    font-weight: bold;
+    padding: 0 20px;
+  }
+
+  p {
+    padding: 50px 20px 0;
+  }
 
   @media (min-width:768px) {
     display: none;
+  }
+
+  .top-hero-links {
+    text-decoration: none;
+    color: #faad14;
+  }
+
+  .overlay {
+    height: 100%;
+    background: rgb(0 0 0 / 77%);
+    /* Transparent black overlay */
+    display: flex;
+    flex-direction: column;
+    // align-items: center;
+    justify-content: center;
   }
 }

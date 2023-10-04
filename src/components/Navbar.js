@@ -49,7 +49,7 @@ const Navbar = () => {
           </button>
           <div className="collapse navbar-collapse" id="navbarTogglerMain">
             <ul className="navbar-nav nav-underline me-auto mb-2 mb-lg-0">
-              <li className="nav-item">
+              <li className="nav-item home">
                 <NavLink
                   className="navlinks"
                   to="/"

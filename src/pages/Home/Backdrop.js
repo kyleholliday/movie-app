@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 import '../../styles/Backdrop.scss';
 
 const Backdrop = () => {
@@ -230,11 +231,38 @@ const Backdrop = () => {
   return (
     <>
       <div className="mobile-only-box">
-        <img
+        <div className="container"></div>
+        <div className="overlay">
+          {/* <h1>BIJOU</h1> */}
+          <p>
+            Discover a world of entertainment with over a million movies and TV
+            shows. From{' '}
+            <Link className="top-hero-links" to="/now-playing">
+              now playing
+            </Link>{' '}
+            and{' '}
+            <Link className="top-hero-links" to="/upcoming">
+              upcoming blockbusters
+            </Link>{' '}
+            to{' '}
+            <Link className="top-hero-links" to="/tv-trending">
+              trending TV
+            </Link>
+            , we've got your popcorn ready.
+          </p>
+        </div>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+          <path
+            fill="#050606"
+            fillOpacity="1"
+            d="M0,320L1440,160L1440,0L0,0Z"
+          ></path>
+        </svg>
+        {/* <img
           src={`mobile-only-${randomNumber}.jpeg`}
           className="img-fluid"
           alt=""
-        />
+        /> */}
       </div>
       {movieBackdropPath && (
         <>

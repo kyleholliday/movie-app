@@ -104,8 +104,62 @@ const TVDetail = () => {
         </div>
       )} */}
       <div className="full-movie-container">
-        <div className="row">
-          <div className="left-side col-10 offset-1 col-md-5 offset-md-0 col-lg-3 offset-lg-1">
+        <div className="row mobile-container">
+          <div className="left-mobile col-7 d-block d-sm-none">
+            <h1 className="title">{show.name}</h1>
+            {show.status.toLowerCase() === 'returning series' && (
+              <p className="returning-series">Ongoing Series</p>
+            )}
+            <p>
+              {/* first air date year  */}
+              {show.first_air_date && show.first_air_date.split('-')[0]}
+
+              {show.status && (
+                <>
+                  {show.status.toLowerCase() === 'returning series' && (
+                    <span>- ?</span>
+                  )}
+                  {show.status.toLowerCase() === 'ended' && (
+                    <span>- {show.last_air_date.split('-')[0]}</span>
+                  )}
+                </>
+              )}
+            </p>
+            {trailerOne && (
+              <div className="button-holder">
+                <a
+                  href={`https://www.youtube.com/watch?v=${trailerOne.key}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="main-button"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    className="bi bi-play-fill"
+                    viewBox="0 0 16 16"
+                  >
+                    <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z" />
+                  </svg>
+                  Trailer
+                </a>
+              </div>
+            )}
+          </div>
+          <div className="right-mobile col-5 d-block d-sm-none">
+            <img
+              src={
+                show.poster_path
+                  ? `https://image.tmdb.org/t/p/w500${show.poster_path}`
+                  : '/nope.png'
+              }
+              alt={show.name}
+              className="img-fluid"
+            />
+          </div>
+          <div className="left-side col-10 offset-1 col-md-5 offset-md-0 col-lg-3 offset-lg-1 d-none d-sm-block">
             <img
               src={
                 show.poster_path
@@ -139,11 +193,13 @@ const TVDetail = () => {
             )}
           </div>
           <div className="right-side col-12 col-md-6">
-            <h1 className="title">{show.name}</h1>
+            <h1 className="title d-none d-sm-block">{show.name}</h1>
             {show.status.toLowerCase() === 'returning series' && (
-              <p className="returning-series">Ongoing Series</p>
+              <p className="returning-series d-none d-sm-inline-block">
+                Ongoing Series
+              </p>
             )}
-            <p>
+            <p className="d-none d-sm-block">
               {/* first air date year  */}
               {show.first_air_date && show.first_air_date.split('-')[0]}
 

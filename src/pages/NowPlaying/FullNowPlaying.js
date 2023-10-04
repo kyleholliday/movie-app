@@ -40,7 +40,7 @@ const NowPlayingMoviesPage = () => {
     <div className="container">
       <div className="full-list">
         <h3 className="heading">Now Playing</h3>
-        <ul className="movie-list">
+        <ul className="movie-list full-list-movies">
           {movies.map((movie) => (
             <li key={movie.id} className="movie">
               <a href={`/movie/${movie.id}`}>

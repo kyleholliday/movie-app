@@ -75,6 +75,7 @@ const NowPlayingMovies = () => {
       <a href="/now-playing" className="see-more">
         See More
       </a>
+      <div className="border-bottom-mobile"></div>
     </div>
   );
 };

@@ -40,7 +40,7 @@ const TVTrendingPage = () => {
     <div className="container">
       <div className="full-list">
         <h3 className="heading">Trending TV</h3>
-        <ul className="movie-list">
+        <ul className="movie-list full-list-movies">
           {shows.map((show) => (
             <li key={show.id} className="movie">
               <a href={`/show/${show.id}`}>
