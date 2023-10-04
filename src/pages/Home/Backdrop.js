@@ -7,8 +7,8 @@ const Backdrop = () => {
   const [movieBackdropPath, setFirstMovieBackdropPath] = useState('');
   const [randomImageText, setRandomImageText] = useState('');
   const [randomImageTextDir, setRandomImageTextDir] = useState('');
-  const [randomNumber, setRandomNumber] = useState(null);
-  const mobileNumberArray = [1, 2, 3, 4, 5, 6, 7];
+  // const [randomNumber, setRandomNumber] = useState(null);
+  // const mobileNumberArray = [1, 2, 3, 4, 5, 6, 7];
 
   useEffect(() => {
     const apiKey = process.env.REACT_APP_API_KEY;
@@ -44,9 +44,9 @@ const Backdrop = () => {
           setRandomImageTextDir(randomImage.dir);
 
           // for mobile only
-          const randomNum =
-            Math.floor(Math.random() * mobileNumberArray.length) + 1;
-          setRandomNumber(randomNum);
+          // const randomNum =
+          //   Math.floor(Math.random() * mobileNumberArray.length) + 1;
+          // setRandomNumber(randomNum);
         }
         document.title = 'Bijou - Home';
       })
@@ -58,9 +58,9 @@ const Backdrop = () => {
           'Joaquim Dos Santos, Justin K. Thompson, Kemp Powers, 2023'
         );
         // for mobile only
-        const randomNum =
-          Math.floor(Math.random() * mobileNumberArray.length) + 1;
-        setRandomNumber(randomNum);
+        // const randomNum =
+        //   Math.floor(Math.random() * mobileNumberArray.length) + 1;
+        // setRandomNumber(randomNum);
       });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
