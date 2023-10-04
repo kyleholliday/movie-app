@@ -50,16 +50,11 @@ const Navbar = () => {
           <div className="collapse navbar-collapse" id="navbarTogglerMain">
             <ul className="navbar-nav nav-underline me-auto mb-2 mb-lg-0">
               <li className="nav-item home">
-                <NavLink
-                  className="navlinks"
-                  to="/"
-                  data-toggle="collapse"
-                  data-target="#navbarTogglerMain"
-                >
+                <NavLink className="navlinks" to="/">
                   Home
                 </NavLink>
               </li>
-              <li className="nav-item">
+              <li className="nav-item d-flex d-sm-none">
                 <NavLink
                   className="navlinks"
                   to="/now-playing"
@@ -69,7 +64,12 @@ const Navbar = () => {
                   Now Playing
                 </NavLink>
               </li>
-              <li className="nav-item">
+              <li className="nav-item d-none d-sm-block">
+                <NavLink className="navlinks" to="/now-playing">
+                  Now Playing
+                </NavLink>
+              </li>
+              <li className="nav-item d-flex d-sm-none">
                 <NavLink
                   className="navlinks"
                   to="/upcoming"
@@ -79,13 +79,23 @@ const Navbar = () => {
                   Upcoming
                 </NavLink>
               </li>
-              <li className="nav-item">
+              <li className="nav-item d-none d-sm-block">
+                <NavLink className="navlinks" to="/upcoming">
+                  Upcoming
+                </NavLink>
+              </li>
+              <li className="nav-item d-flex d-sm-none">
                 <NavLink
                   className="navlinks"
                   to="/tv-trending"
                   data-toggle="collapse"
                   data-target="#navbarTogglerMain"
                 >
+                  Trending TV
+                </NavLink>
+              </li>
+              <li className="nav-item d-none d-sm-block">
+                <NavLink className="navlinks" to="/tv-trending">
                   Trending TV
                 </NavLink>
               </li>
