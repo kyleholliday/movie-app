@@ -1,7 +1,7 @@
 .top-text-container {
   padding-top: 400px;
   position: relative;
-  color: #fff;
+  color: var(--main-white);
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
@@ -41,7 +41,7 @@
 }
 
 .mobile-only-box {
-  color: #fff;
+  color: var(--main-white);
   // text-align: center;
   // background-image: url('../../public/chairs.jpg');
   // height: 200px;
@@ -63,7 +63,7 @@
 
   .top-hero-links {
     text-decoration: none;
-    color: #faad14;
+    color: var(--main-yellow);
   }
 
   .overlay {

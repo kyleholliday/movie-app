@@ -15,7 +15,8 @@ import TVTrendingPage from './pages/TV/FullTrendingTV';
 import Actor from './pages/Person/Actor';
 import Backdrop from './pages/Home/Backdrop';
 import Footer from './components/Footer';
-import TopGenres from './pages/Home/Genres';
+import './styles/Variables.scss';
+// import TopGenres from './pages/Home/Genres';
 
 function App() {
   return (
@@ -28,7 +29,7 @@ function App() {
             element={
               <>
                 <Backdrop />
-                <TopGenres />
+                {/* <TopGenres /> */}
                 <NowPlayingMovies />
                 <UpcomingMovies />
                 <TrendingTV />

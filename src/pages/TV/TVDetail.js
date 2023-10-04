@@ -118,10 +118,10 @@ const TVDetail = () => {
               {show.status && (
                 <>
                   {show.status.toLowerCase() === 'returning series' && (
-                    <span>- ?</span>
+                    <span> - ?</span>
                   )}
                   {show.status.toLowerCase() === 'ended' && (
-                    <span>- {show.last_air_date.split('-')[0]}</span>
+                    <span> - {show.last_air_date.split('-')[0]}</span>
                   )}
                 </>
               )}
@@ -207,10 +207,10 @@ const TVDetail = () => {
               {show.status && (
                 <>
                   {show.status.toLowerCase() === 'returning series' && (
-                    <span>- ?</span>
+                    <span> - ?</span>
                   )}
                   {show.status.toLowerCase() === 'ended' && (
-                    <span>- {show.last_air_date.split('-')[0]}</span>
+                    <span> - {show.last_air_date.split('-')[0]}</span>
                   )}
                 </>
               )}

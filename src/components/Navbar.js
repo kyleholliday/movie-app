@@ -104,11 +104,11 @@ const Navbar = () => {
               <input
                 type="text"
                 placeholder="Search Movies and TV"
-                value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 onKeyDown={handleKeyDown}
                 className="form-control me-2"
                 aria-label="Search Movies and TV"
+                name="Search"
               />
               <button className="btn search-btn" onClick={handleSearch}>
                 Search

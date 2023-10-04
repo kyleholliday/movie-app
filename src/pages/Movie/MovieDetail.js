@@ -258,19 +258,37 @@ const MovieDetail = () => {
             <h4 className="tagline">{movie.tagline}</h4>
             <p className="overview">{movie.overview}</p>
             {/* <ul>
-        {movie.credits.crew.map((crewMember) => (
-          <li key={crewMember.id}>
-            {crewMember.name} ({crewMember.job})
-          </li>
-        ))}
-      </ul> */}
+              {movie.credits.crew.map((crewMember) => (
+                <li key={crewMember.id}>
+                  {crewMember.name} ({crewMember.job})
+                </li>
+              ))}
+            </ul> */}
             {movie.credits.cast.length > 0 && (
               <>
                 <p>CAST</p>
                 <ul className="cast-list">
                   {movie.credits.cast.slice(0, 20).map((castMember) => (
                     <li key={castMember.id}>
-                      <OverlayTrigger
+                      {castMember.character ? (
+                        <OverlayTrigger
+                          placement="top"
+                          overlay={
+                            <Tooltip id={`tooltip-${castMember.id}`}>
+                              {castMember.character}
+                            </Tooltip>
+                          }
+                        >
+                          <Link to={`/actor/${castMember.id}`}>
+                            {castMember.name}
+                          </Link>
+                        </OverlayTrigger>
+                      ) : (
+                        <Link to={`/actor/${castMember.id}`}>
+                          {castMember.name}
+                        </Link>
+                      )}
+                      {/* <OverlayTrigger
                         placement="top"
                         overlay={
                           <Tooltip id={`tooltip-${castMember.id}`}>
@@ -281,7 +299,7 @@ const MovieDetail = () => {
                         <Link to={`/actor/${castMember.id}`}>
                           {castMember.name}
                         </Link>
-                      </OverlayTrigger>
+                      </OverlayTrigger> */}
                     </li>
                   ))}
                 </ul>

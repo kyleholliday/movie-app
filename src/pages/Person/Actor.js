@@ -33,12 +33,14 @@ const ActorDetails = () => {
 
         credits.forEach((credit) => {
           if (
-            !credit.character.toLowerCase().includes('self') &&
+            !credit.character.toLowerCase().includes('presenter') &&
             credit.character.trim() !== '' &&
-            !uniqueCredits.has(credit.id)
-            // Check if the ID is not already in the Set
+            !uniqueCredits.has(credit.id) &&
+            (!credit.genre_ids ||
+              (!credit.genre_ids.includes(10767) &&
+                !credit.genre_ids.includes(10763)))
           ) {
-            uniqueCredits.add(credit.id); // Add the ID to the Set to mark it as unique
+            uniqueCredits.add(credit.id);
 
             if (credit.media_type === 'movie' && credit.adult === false) {
               movieCredits.push(credit);
@@ -210,6 +212,8 @@ const ActorDetails = () => {
     return <div>Loading...</div>;
   }
 
+  console.log(actorData);
+
   return (
     <div className="container">
       <div className="person-info row">
@@ -222,9 +226,9 @@ const ActorDetails = () => {
               <div className="films-and-sort">
                 <p>{actorData.movieCredits.length} Films</p>
                 <div className="sorting-dropdown">
-                  <label htmlFor="sort-select">Sort by: </label>
+                  <label htmlFor="sort-select-films">Sort by: </label>
                   <select
-                    id="sort-select"
+                    id="sort-select-films"
                     onChange={(e) => handleSortChange(e.target.value)}
                   >
                     <option value="popularity">Popularity</option>
@@ -266,9 +270,9 @@ const ActorDetails = () => {
               <div className="films-and-sort">
                 <p>{actorData.tvCredits.length} TV Shows</p>
                 <div className="sorting-dropdown">
-                  <label htmlFor="sort-select">Sort by: </label>
+                  <label htmlFor="sort-select-tv">Sort by: </label>
                   <select
-                    id="sort-select"
+                    id="sort-select-tv"
                     onChange={(e) => handleSortChangeTV(e.target.value)}
                   >
                     <option value="popularityTV">Popularity</option>

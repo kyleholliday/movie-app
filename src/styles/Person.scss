@@ -1,16 +1,16 @@
 .person-info {
   position: relative;
   z-index: 3;
-  color: rgb(153, 170, 187);
+  color: #99aabb;
 
   .left-side {
     h1 {
-      color: #fff;
+      color: var(--main-white);
       font-weight: bold;
 
       &.tv {
         margin-top: 20px;
-        border-top: 1px solid rgb(153, 170, 187);
+        border-top: 1px solid #404347;
         padding-top: 20px;
       }
 
@@ -19,7 +19,7 @@
         font-size: 1rem;
         text-transform: uppercase;
         letter-spacing: .075em;
-        color: rgb(153, 170, 187);
+        color: #99aabb;
         font-weight: 400;
       }
     }
@@ -31,7 +31,7 @@
     padding-right: 20px;
 
     @media (max-width: 767px) {
-      border-top: 1px solid rgb(153, 170, 187);
+      border-top: 1px solid #99aabb;
       padding-top: 10px;
       margin-top: 15px;
     }
@@ -42,7 +42,7 @@
 
     select {
       background: none;
-      color: #fff;
+      color: var(--main-white);
       border: 0;
     }
   }
@@ -50,11 +50,11 @@
   .right-side {
     h1 {
       font-weight: bold;
-      color: #fff;
+      color: var(--main-white);
 
       .as-director {
         font-size: 1rem;
-        color: rgb(153, 170, 187);
+        color: #99aabb;
         font-weight: 400;
       }
     }
@@ -62,7 +62,7 @@
     img {
       border-radius: 4px;
       margin-bottom: 10px;
-      border: 1px solid hsla(0, 0%, 100%, .25);
+      border: 1px solid rgba(255, 255, 255, 0.25);
     }
 
     .view-more {

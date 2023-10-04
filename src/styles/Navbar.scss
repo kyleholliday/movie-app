@@ -21,7 +21,7 @@
   z-index: 10;
 
   .navbar-brand {
-    color: #faad14;
+    color: var(--main-yellow);
     font-weight: 900;
 
     @media(min-width:768px) {
@@ -74,7 +74,7 @@
     display: block;
     padding: 0.5rem 0;
     font-size: 1em;
-    color: #fff;
+    color: var(--main-white);
     text-decoration: none;
     background: none;
     border: 0;
@@ -86,13 +86,13 @@
     }
 
     &:hover {
-      color: #faad14;
+      color: var(--main-yellow);
     }
 
     &.active {
       font-weight: 700;
-      color: #faad14;
-      border-bottom-color: #faad14;
+      color: var(--main-yellow);
+      border-bottom-color: var(--main-yellow);
     }
   }
 
@@ -114,11 +114,11 @@
     padding: 5px 25px;
     background: transparent;
     transition: 0.5s ease;
-    color: #fff;
-    border: 2px solid #faad14;
+    color: var(--main-white);
+    border: 2px solid var(--main-yellow);
 
     &:hover {
-      background: #faad14;
+      background: var(--main-yellow);
     }
   }
 }

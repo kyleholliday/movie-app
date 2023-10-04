@@ -43,12 +43,12 @@
           background: transparent;
 
           p {
-            color: #faad14;
+            color: var(--main-yellow);
           }
         }
 
         p {
-          color: #fff;
+          color: var(--main-white);
           font-weight: bold;
           font-size: 1.6rem;
           text-shadow: #000 2px 2px 5px;

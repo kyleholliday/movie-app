@@ -7,7 +7,7 @@
   }
 
   .search-results-for {
-    color: #fff;
+    color: var(--main-white);
   }
 
   ul {
@@ -37,7 +37,7 @@
           transition: 0.15s ease-in-out;
 
           &:hover {
-            border: 2px solid #faad14;
+            border: 2px solid var(--main-yellow);
           }
         }
       }
@@ -45,7 +45,7 @@
       .card-title {
         text-decoration: none;
         font-weight: bold;
-        color: #fff;
+        color: var(--main-white);
         transition: color 0.15s ease-in-out;
 
         @media(max-width:767px) {
@@ -53,16 +53,16 @@
         }
 
         &:hover {
-          color: #faad14;
+          color: var(--main-yellow);
         }
       }
 
       p {
-        color: #fff;
+        color: var(--main-white);
 
         &.release-and-type {
           display: inline-block;
-          border: 1px solid #fff;
+          border: 1px solid var(--main-white);
           padding: 0 10px;
           border-radius: 10px;
         }

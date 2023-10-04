@@ -77,7 +77,7 @@
     }
 
     .percentage {
-      fill: #fff;
+      fill: var(--main-white);
       font-size: 0.5em;
       text-anchor: middle;
     }
@@ -103,7 +103,7 @@
     }
 
     .director {
-      color: #faad14;
+      color: var(--main-yellow);
       text-decoration: none;
       transition: 0.3s ease-in-out;
 
@@ -203,7 +203,7 @@
     padding-top: 10px;
 
     h1 {
-      color: #fff;
+      color: var(--main-white);
       font-weight: bold;
       margin-bottom: 15px;
     }
@@ -222,7 +222,7 @@
     }
 
     .director {
-      color: #faad14;
+      color: var(--main-yellow);
       text-decoration: none;
     }
 
@@ -231,7 +231,7 @@
       align-items: flex-start;
 
       .main-button {
-        color: #fff;
+        color: var(--main-white);
         text-transform: uppercase;
         font-size: .8em;
         padding: 3px 6px;

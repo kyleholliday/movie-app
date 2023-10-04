@@ -144,7 +144,7 @@ body {
     color: #14181c;
     display: inline-block;
     margin: 0;
-    background: #faad14;
+    background: var(--main-yellow);
     padding: 10px 16px;
     position: relative;
     top: 30px;
@@ -156,7 +156,7 @@ body {
       top: 0;
       left: 0;
       background: none;
-      color: #fff;
+      color: var(--main-white);
       padding: 10px 0;
       font-weight: bold;
       font-size: 2rem;
@@ -171,7 +171,7 @@ body {
 
 a.see-more {
   text-decoration: none;
-  color: #faad14;
+  color: var(--main-yellow);
   padding-left: 6px;
 }
 
@@ -219,7 +219,7 @@ a.see-more {
     transition: opacity 0.3s ease;
 
     .overlay-text {
-      color: #fff;
+      color: var(--main-white);
       font-size: 1.2rem;
       font-weight: bold;
       text-align: center;
