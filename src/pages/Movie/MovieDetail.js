@@ -79,7 +79,7 @@ const MovieDetail = () => {
     return formattedTime;
   }
 
-  const findLastTrailerByName = (name) => {
+  const findLastTrailerByName = () => {
     if (!movie || !movie.videos.results) return null;
 
     const matchingVideos = movie.videos.results.filter(

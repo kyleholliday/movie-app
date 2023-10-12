@@ -85,6 +85,8 @@ const TVDetail = () => {
   //   }
   // }
 
+  console.log(show);
+
   return (
     <div className="container">
       {/* {show.backdrop_path && (
@@ -120,9 +122,10 @@ const TVDetail = () => {
                   {show.status.toLowerCase() === 'returning series' && (
                     <span> - ?</span>
                   )}
-                  {show.status.toLowerCase() === 'ended' && (
-                    <span> - {show.last_air_date.split('-')[0]}</span>
-                  )}
+                  {show.status.toLowerCase() === 'ended' &&
+                    show.last_air_date !== null && (
+                      <span> - {show.last_air_date.split('-')[0]}</span>
+                    )}
                 </>
               )}
             </p>
@@ -209,9 +212,10 @@ const TVDetail = () => {
                   {show.status.toLowerCase() === 'returning series' && (
                     <span> - ?</span>
                   )}
-                  {show.status.toLowerCase() === 'ended' && (
-                    <span> - {show.last_air_date.split('-')[0]}</span>
-                  )}
+                  {show.status.toLowerCase() === 'ended' &&
+                    show.last_air_date !== null && (
+                      <span> - {show.last_air_date.split('-')[0]}</span>
+                    )}
                 </>
               )}
             </p>
