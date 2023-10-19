@@ -109,6 +109,8 @@ const MovieDetail = () => {
     return <div>Loading...</div>;
   }
 
+  console.log(movie);
+
   return (
     <div className="container">
       {/* {movie.backdrop_path && (

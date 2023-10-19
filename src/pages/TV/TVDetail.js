@@ -123,7 +123,9 @@ const TVDetail = () => {
                     <span> - ?</span>
                   )}
                   {show.status.toLowerCase() === 'ended' &&
-                    show.last_air_date !== null && (
+                    show.last_air_date !== null &&
+                    show.last_air_date.split('-')[0] !==
+                      show.first_air_date.split('-')[0] && (
                       <span> - {show.last_air_date.split('-')[0]}</span>
                     )}
                 </>
@@ -203,6 +205,11 @@ const TVDetail = () => {
                 Ongoing Series
               </p>
             )}
+            {show.type.toLowerCase() === 'miniseries' && (
+              <p className="returning-series d-none d-sm-inline-block">
+                Miniseries
+              </p>
+            )}
             <p className="d-none d-sm-block">
               {/* first air date year  */}
               {show.first_air_date && show.first_air_date.split('-')[0]}
@@ -213,7 +220,9 @@ const TVDetail = () => {
                     <span> - ?</span>
                   )}
                   {show.status.toLowerCase() === 'ended' &&
-                    show.last_air_date !== null && (
+                    show.last_air_date !== null &&
+                    show.last_air_date.split('-')[0] !==
+                      show.first_air_date.split('-')[0] && (
                       <span> - {show.last_air_date.split('-')[0]}</span>
                     )}
                 </>
