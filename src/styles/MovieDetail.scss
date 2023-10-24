@@ -201,7 +201,8 @@
       padding-left: 0;
 
       li {
-        width: 140px;
+        // width: 140px;
+        flex-basis: calc(25% - 10px);
         margin-right: 10px;
         margin-bottom: 10px;
         position: relative;
@@ -210,7 +211,7 @@
         border-radius: 4px;
 
         @media(max-width: 767px) {
-          width: 30%;
+          flex-basis: calc(32% - 10px);
         }
 
         img {
