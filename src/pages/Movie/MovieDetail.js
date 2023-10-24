@@ -8,6 +8,7 @@ const MovieDetail = () => {
   const { movieId } = useParams();
   const [movie, setMovie] = useState(null);
   const [usProviders, setUsProviders] = useState(null);
+  const [collection, setCollection] = useState(null);
 
   useEffect(() => {
     const apiKey = process.env.REACT_APP_API_KEY;
@@ -24,6 +25,20 @@ const MovieDetail = () => {
       .then((response) => {
         setMovie(response.data);
         document.title = response.data.title;
+        if (response.data.belongs_to_collection) {
+          const collectionId = response.data.belongs_to_collection.id;
+          const collectionEndpoint = `https://api.themoviedb.org/3/collection/${collectionId}`;
+          axios
+            .get(collectionEndpoint, {
+              params: { api_key: apiKey },
+            })
+            .then((collectionResponse) => {
+              setCollection(collectionResponse.data);
+            })
+            .catch((error) => {
+              console.error('Error fetching Collection Details:', error);
+            });
+        }
       })
       .catch((error) => {
         console.error('Error fetching Movie Details:', error);
@@ -110,6 +125,7 @@ const MovieDetail = () => {
   }
 
   console.log(movie);
+  console.log(collection);
 
   return (
     <div className="container">
@@ -336,6 +352,32 @@ const MovieDetail = () => {
                   ))}
                 </ul>
               </div>
+            )}
+            {collection && (
+              <>
+                <p>Related Films:</p>
+                <ul className="collection">
+                  {collection.parts.map((collectionMovie) => (
+                    <li key={collectionMovie.id}>
+                      <a href={`/movie/${collectionMovie.id}`}>
+                        <img
+                          src={
+                            collectionMovie.poster_path
+                              ? `https://image.tmdb.org/t/p/w500${collectionMovie.poster_path}`
+                              : '/nope.png'
+                          }
+                          alt={collectionMovie.title}
+                        />
+                        <div className="overlay">
+                          <p className="overlay-text">
+                            {collectionMovie.title}
+                          </p>
+                        </div>
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </>
             )}
           </div>
         </div>
