@@ -9,6 +9,7 @@ const MovieDetail = () => {
   const [movie, setMovie] = useState(null);
   const [usProviders, setUsProviders] = useState(null);
   const [collection, setCollection] = useState(null);
+  const [displaySection, setDisplaySection] = useState('cast');
 
   useEffect(() => {
     const apiKey = process.env.REACT_APP_API_KEY;
@@ -123,6 +124,16 @@ const MovieDetail = () => {
   if (!movie) {
     return <div>Loading...</div>;
   }
+
+  // Function to filter crew members by job
+  const filterCrewByJob = (job) =>
+    movie.credits.crew.filter(
+      (crewMember) => crewMember.job && crewMember.job.toLowerCase() === job
+    );
+
+  const handleSectionClick = (section) => {
+    setDisplaySection(section);
+  };
 
   console.log(movie);
   console.log(collection);
@@ -275,54 +286,169 @@ const MovieDetail = () => {
             )}
             <h4 className="tagline">{movie.tagline}</h4>
             <p className="overview">{movie.overview}</p>
-            {/* <ul>
-              {movie.credits.crew.map((crewMember) => (
-                <li key={crewMember.id}>
-                  {crewMember.name} ({crewMember.job})
-                </li>
-              ))}
-            </ul> */}
-            {movie.credits.cast.length > 0 && (
-              <>
-                <p>CAST</p>
-                <ul className="cast-list">
-                  {movie.credits.cast.slice(0, 20).map((castMember) => (
-                    <li key={castMember.id}>
-                      {castMember.character ? (
-                        <OverlayTrigger
-                          placement="top"
-                          overlay={
-                            <Tooltip id={`tooltip-${castMember.id}`}>
-                              {castMember.character}
-                            </Tooltip>
-                          }
-                          delay={{ show: 300, hide: 0 }}
-                        >
-                          <Link to={`/actor/${castMember.id}`}>
-                            {castMember.name}
-                          </Link>
-                        </OverlayTrigger>
-                      ) : (
-                        <Link to={`/actor/${castMember.id}`}>
-                          {castMember.name}
-                        </Link>
-                      )}
-                      {/* <OverlayTrigger
+            <ul className="nav nav-tabs details-tabs">
+              <li className="nav-item">
+                <button
+                  href="#"
+                  onClick={() => handleSectionClick('cast')}
+                  className={`${
+                    displaySection === 'cast' ? 'active' : ''
+                  } nav-link `}
+                >
+                  Cast
+                </button>
+              </li>
+              <li className="nav-item">
+                <button
+                  onClick={() => handleSectionClick('crew')}
+                  className={`${
+                    displaySection === 'crew' ? 'active' : ''
+                  } nav-link `}
+                >
+                  Crew
+                </button>
+              </li>
+            </ul>
+            {movie.credits.cast.length > 0 && displaySection === 'cast' && (
+              <ul className="cast-list details-holder">
+                {movie.credits.cast.slice(0, 20).map((castMember) => (
+                  <li key={castMember.id}>
+                    {castMember.character ? (
+                      <OverlayTrigger
                         placement="top"
                         overlay={
                           <Tooltip id={`tooltip-${castMember.id}`}>
                             {castMember.character}
                           </Tooltip>
                         }
+                        delay={{ show: 300, hide: 0 }}
                       >
                         <Link to={`/actor/${castMember.id}`}>
                           {castMember.name}
                         </Link>
-                      </OverlayTrigger> */}
-                    </li>
-                  ))}
-                </ul>
-              </>
+                      </OverlayTrigger>
+                    ) : (
+                      <Link to={`/actor/${castMember.id}`}>
+                        {castMember.name}
+                      </Link>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            )}
+            {movie.credits.crew.length > 0 && displaySection === 'crew' && (
+              <div className="crew-grid details-holder">
+                {filterCrewByJob('director').length > 0 && (
+                  <div className="crew-category">
+                    <p className="job">
+                      <span>Director</span>
+                    </p>
+                    <div className="name-container">
+                      {filterCrewByJob('director').map((director) => (
+                        <div key={director.id} className="crew-member">
+                          {director.name}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+                {filterCrewByJob('producer').length > 0 && (
+                  <div className="crew-category">
+                    <p className="job">
+                      <span>Producer</span>
+                    </p>
+                    <div className="name-container">
+                      {filterCrewByJob('producer').map((producer) => (
+                        <div key={producer.id} className="crew-member">
+                          {producer.name}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+                {filterCrewByJob('executive producer').length > 0 && (
+                  <div className="crew-category">
+                    <p className="job">
+                      <span>Executive Producer</span>
+                    </p>
+                    <div className="name-container">
+                      {filterCrewByJob('executive producer').map(
+                        (executiveProducer) => (
+                          <div
+                            key={executiveProducer.id}
+                            className="crew-member"
+                          >
+                            {executiveProducer.name}
+                          </div>
+                        )
+                      )}
+                    </div>
+                  </div>
+                )}
+                {filterCrewByJob('screenplay').length > 0 && (
+                  <div className="crew-category">
+                    <p className="job">
+                      <span>Writer</span>
+                    </p>
+                    <div className="name-container">
+                      {filterCrewByJob('screenplay').map((screenplay) => (
+                        <div key={screenplay.id} className="crew-member">
+                          {screenplay.name}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+                {filterCrewByJob('writer').length > 0 && (
+                  <div className="crew-category">
+                    <p className="job">
+                      <span>Writer</span>
+                    </p>
+                    <div className="name-container">
+                      {filterCrewByJob('writer').map((screenplay) => (
+                        <div key={screenplay.id} className="crew-member">
+                          {screenplay.name}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+                {filterCrewByJob('director of photography').length > 0 && (
+                  <div className="crew-category">
+                    <p className="job">
+                      <span>Cinematography</span>
+                    </p>
+                    <div className="name-container">
+                      {filterCrewByJob('director of photography').map(
+                        (directorOfPhotography) => (
+                          <div
+                            key={directorOfPhotography.id}
+                            className="crew-member"
+                          >
+                            {directorOfPhotography.name}
+                          </div>
+                        )
+                      )}
+                    </div>
+                  </div>
+                )}
+                {filterCrewByJob('original music composer').length > 0 && (
+                  <div className="crew-category">
+                    <p className="job">
+                      <span>Composer</span>
+                    </p>
+                    <div className="name-container">
+                      {filterCrewByJob('original music composer').map(
+                        (composer) => (
+                          <div key={composer.id} className="crew-member">
+                            {composer.name}
+                          </div>
+                        )
+                      )}
+                    </div>
+                  </div>
+                )}
+              </div>
             )}
             <div className="us-providers">
               {usProviders && usProviders.flatrate && (

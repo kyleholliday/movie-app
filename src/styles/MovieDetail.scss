@@ -123,9 +123,34 @@
       margin-bottom: 30px;
     }
 
+    .details-tabs {
+      border: 0;
+    }
+
+    .nav-tabs .nav-link,
+    .nav-tabs .nav-item.show .nav-link {
+      color: var(--main-yellow);
+      text-transform: uppercase;
+      letter-spacing: 0.075em;
+      border-color: rgb(39 48 55);
+      border-width: 2px;
+    }
+
+    .nav-tabs .nav-link.active,
+    .nav-tabs .nav-item.show .nav-link {
+      background-color: rgb(39 48 55);
+      color: #f3f3f3;
+      border-bottom-color: rgb(39 48 55);
+    }
+
+    .details-holder {
+      background: rgb(39 48 55);
+      padding: 20px 10px;
+      border-radius: 0 4px 4px 4px;
+    }
+
     .cast-list {
       list-style-type: none;
-      padding-left: 0;
       display: flex;
       flex-wrap: wrap;
       margin-bottom: 30px;
@@ -134,18 +159,61 @@
         margin: 4px 2px;
 
         a {
-          background: #283038;
+          // background: #283038;
           padding: 3px 6px;
           border-radius: 4px;
           box-shadow: inset 0 1px 0 hsla(0, 0%, 100%, .05);
           white-space: nowrap;
           text-decoration: none;
-          color: rgb(153, 170, 187);
+          // color: rgb(153, 170, 187);
+          background: #4b5866;
+          color: #f3f3f3;
 
           &:hover {
-            background: #303840;
-            color: #def;
+            background: #607388;
           }
+        }
+      }
+
+      &.tv {
+        padding-left: 0;
+      }
+    }
+
+    .crew-grid {
+      color: #f3f3f3;
+      margin-bottom: 30px;
+      padding-left: 16px;
+
+      .crew-category {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 10px;
+
+        p.job {
+          border-bottom: 1px dotted #f3f3f3;
+          clear: left;
+          float: left;
+          width: 15em;
+
+          @media(max-width: 767px) {
+            width: 11em;
+          }
+
+          span {
+            display: inline;
+            background-color: rgb(39 48 55);
+            line-height: 1.1;
+            padding: 1px 0.4em 0 0;
+            position: relative;
+            text-transform: uppercase;
+            top: 11px;
+          }
+        }
+
+        .name-container {
+          padding-left: 10px;
+          padding-top: 11px;
         }
       }
     }

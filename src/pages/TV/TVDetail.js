@@ -245,7 +245,7 @@ const TVDetail = () => {
             {show.credits.cast.length > 0 && (
               <>
                 <p>MAIN CAST</p>
-                <ul className="cast-list">
+                <ul className="cast-list tv">
                   {show.credits.cast.slice(0, 20).map((castMember) => (
                     <li key={castMember.id}>
                       {castMember.character ? (
