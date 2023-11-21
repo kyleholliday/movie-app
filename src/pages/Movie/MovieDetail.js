@@ -341,7 +341,9 @@ const MovieDetail = () => {
                 {filterCrewByJob('director').length > 0 && (
                   <div className="crew-category">
                     <p className="job">
-                      <span>Director</span>
+                      <span>
+                        Director{filterCrewByJob('director').length > 1 && 's'}
+                      </span>
                     </p>
                     <div className="name-container">
                       {filterCrewByJob('director').map((director) => (
@@ -352,15 +354,33 @@ const MovieDetail = () => {
                     </div>
                   </div>
                 )}
-                {filterCrewByJob('producer').length > 0 && (
+                {filterCrewByJob('screenplay').length > 0 && (
                   <div className="crew-category">
                     <p className="job">
-                      <span>Producer</span>
+                      <span>
+                        Writer{filterCrewByJob('screenplay').length > 1 && 's'}
+                      </span>
                     </p>
                     <div className="name-container">
-                      {filterCrewByJob('producer').map((producer) => (
-                        <div key={producer.id} className="crew-member">
-                          {producer.name}
+                      {filterCrewByJob('screenplay').map((screenplay) => (
+                        <div key={screenplay.id} className="crew-member">
+                          {screenplay.name}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+                {filterCrewByJob('writer').length > 0 && (
+                  <div className="crew-category">
+                    <p className="job">
+                      <span>
+                        Writer{filterCrewByJob('writer').length > 1 && 's'}
+                      </span>
+                    </p>
+                    <div className="name-container">
+                      {filterCrewByJob('writer').map((screenplay) => (
+                        <div key={screenplay.id} className="crew-member">
+                          {screenplay.name}
                         </div>
                       ))}
                     </div>
@@ -369,7 +389,11 @@ const MovieDetail = () => {
                 {filterCrewByJob('executive producer').length > 0 && (
                   <div className="crew-category">
                     <p className="job">
-                      <span>Executive Producer</span>
+                      <span>
+                        Executive Producer
+                        {filterCrewByJob('executive producer').length > 1 &&
+                          's'}
+                      </span>
                     </p>
                     <div className="name-container">
                       {filterCrewByJob('executive producer').map(
@@ -385,29 +409,17 @@ const MovieDetail = () => {
                     </div>
                   </div>
                 )}
-                {filterCrewByJob('screenplay').length > 0 && (
+                {filterCrewByJob('producer').length > 0 && (
                   <div className="crew-category">
                     <p className="job">
-                      <span>Writer</span>
+                      <span>
+                        Producer{filterCrewByJob('producer').length > 1 && 's'}
+                      </span>
                     </p>
                     <div className="name-container">
-                      {filterCrewByJob('screenplay').map((screenplay) => (
-                        <div key={screenplay.id} className="crew-member">
-                          {screenplay.name}
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                )}
-                {filterCrewByJob('writer').length > 0 && (
-                  <div className="crew-category">
-                    <p className="job">
-                      <span>Writer</span>
-                    </p>
-                    <div className="name-container">
-                      {filterCrewByJob('writer').map((screenplay) => (
-                        <div key={screenplay.id} className="crew-member">
-                          {screenplay.name}
+                      {filterCrewByJob('producer').map((producer) => (
+                        <div key={producer.id} className="crew-member">
+                          {producer.name}
                         </div>
                       ))}
                     </div>
@@ -435,7 +447,11 @@ const MovieDetail = () => {
                 {filterCrewByJob('original music composer').length > 0 && (
                   <div className="crew-category">
                     <p className="job">
-                      <span>Composer</span>
+                      <span>
+                        Composer
+                        {filterCrewByJob('original music composer').length >
+                          1 && 's'}
+                      </span>
                     </p>
                     <div className="name-container">
                       {filterCrewByJob('original music composer').map(

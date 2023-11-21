@@ -185,19 +185,32 @@
       margin-bottom: 30px;
       padding-left: 16px;
 
+      @media(max-width: 767px) {
+        padding: 20px 15px;
+      }
+
       .crew-category {
         display: flex;
         align-items: flex-start;
         margin-bottom: 10px;
 
+        @media(max-width: 767px) {
+          display: block;
+          padding-bottom: 20px;
+        }
+
         p.job {
-          border-bottom: 1px dotted #f3f3f3;
+          border-bottom: 2px dotted #f3f3f3;
           clear: left;
           float: left;
           width: 15em;
 
           @media(max-width: 767px) {
-            width: 11em;
+            border-bottom: 2px dotted #f3f3f3;
+            clear: none;
+            float: none;
+            width: auto;
+            margin-bottom: 20px;
           }
 
           span {
@@ -208,12 +221,24 @@
             position: relative;
             text-transform: uppercase;
             top: 11px;
+
+            @media(max-width: 767px) {
+              padding-right: 5px;
+              border-radius: 4px;
+              font-weight: bold;
+              letter-spacing: 0.075em;
+            }
           }
         }
 
         .name-container {
           padding-left: 10px;
           padding-top: 11px;
+
+          @media(max-width: 767px) {
+            padding-left: 5px;
+            padding-top: 0;
+          }
         }
       }
     }
