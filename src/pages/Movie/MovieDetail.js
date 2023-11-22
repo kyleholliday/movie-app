@@ -40,6 +40,14 @@ const MovieDetail = () => {
               console.error('Error fetching Collection Details:', error);
             });
         }
+        // Check if cast exists and has elements
+        if (response.data.credits && response.data.credits.cast.length > 0) {
+          // Cast exists and has elements, set display section to 'cast'
+          setDisplaySection('cast');
+        } else {
+          // Cast doesn't exist or is empty, set display section to 'crew'
+          setDisplaySection('crew');
+        }
       })
       .catch((error) => {
         console.error('Error fetching Movie Details:', error);
@@ -287,17 +295,20 @@ const MovieDetail = () => {
             <h4 className="tagline">{movie.tagline}</h4>
             <p className="overview">{movie.overview}</p>
             <ul className="nav nav-tabs details-tabs">
-              <li className="nav-item">
-                <button
-                  href="#"
-                  onClick={() => handleSectionClick('cast')}
-                  className={`${
-                    displaySection === 'cast' ? 'active' : ''
-                  } nav-link `}
-                >
-                  Cast
-                </button>
-              </li>
+              {movie.credits.cast.length > 0 && (
+                <li className="nav-item">
+                  <button
+                    href="#"
+                    onClick={() => handleSectionClick('cast')}
+                    className={`${
+                      displaySection === 'cast' ? 'active' : ''
+                    } nav-link `}
+                  >
+                    Cast
+                  </button>
+                </li>
+              )}
+
               <li className="nav-item">
                 <button
                   onClick={() => handleSectionClick('crew')}
