@@ -7,7 +7,19 @@ const Footer = () => {
     <footer>
       <div className="container">
         <p>
-          Created by Kyle Holliday {fullYear} - API provided by{' '}
+          Created by Kyle Holliday {fullYear} - Hosted with{' '}
+          <a href="https://www.netlify.com/" target="_blank" rel="noreferrer">
+            Netlify
+          </a>{' '}
+          - Code is on{' '}
+          <a
+            href="https://github.com/kyleholliday/movie-app"
+            target="_blank"
+            rel="noreferrer"
+          >
+            GitHub
+          </a>{' '}
+          - API provided by{' '}
           <a
             href="https://www.themoviedb.org/?language=en-US"
             target="_blank"

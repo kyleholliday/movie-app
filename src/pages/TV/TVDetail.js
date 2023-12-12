@@ -210,9 +210,10 @@ const TVDetail = () => {
 
               {show.status && (
                 <>
-                  {show.status.toLowerCase() === 'returning series' && (
-                    <span> - ?</span>
-                  )}
+                  {show.first_air_date &&
+                    show.status.toLowerCase() === 'returning series' && (
+                      <span> - ?</span>
+                    )}
                   {show.status.toLowerCase() === 'ended' &&
                     show.last_air_date !== null &&
                     show.last_air_date.split('-')[0] !==
